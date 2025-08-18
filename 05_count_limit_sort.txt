@@ -1,0 +1,30 @@
+use bookstore;
+db;
+db.createCollection("books");
+
+db.books.insertMany([
+  { title: "The Color of Magic", author: "Terry Pachman", page: 300, ratings: 9, genres: ["fantasy", "magic"] },
+  { title: "The Color of Ice", author: "Terry Pachman", page: 320, ratings: 8, genres: ["fantasy", "magic"] },
+  { title: "The Hobbit", author: "J.R.R. Tolkien", page: 310, ratings: 9, genres: ["fantasy", "adventure", "classic"] },
+  { title: "Mistborn: The Final Empire", author: "Brandon Sanderson", page: 541, ratings: 9, genres: ["fantasy", "heist", "magic"] },
+  { title: "The Name of the Wind", author: "Patrick Rothfuss", page: 662, ratings: 9, genres: ["fantasy", "coming-of-age", "magic"] },
+  { title: "American Gods", author: "Neil Gaiman", page: 480, ratings: 8, genres: ["fantasy", "mythology", "urban-fantasy"] },
+  { title: "A Game of Thrones", author: "George R. R. Martin", page: 694, ratings: 9, genres: ["fantasy", "political", "epic"] },
+  { title: "The Lies of Locke Lamora", author: "Scott Lynch", page: 722, ratings: 8, genres: ["fantasy", "heist", "crime"] },
+  { title: "The Priory of the Orange Tree", author: "Samantha Shannon", page: 848, ratings: 8, genres: ["fantasy", "dragons", "epic"] }
+]);
+
+db.books.find();
+db.books.find().count(); // 9
+
+db.books.find({author: "Terry Pachman"});
+db.books.find({author: "Terry Pachman"}).count(); // 2
+
+db.books.find().limit(3); // limits to 3 records
+db.books.find().limit(3).count(); // 3
+
+db.books.find().limit(3).skip(1); // skips the first document and then limits 3 documents
+db.books.find().limit(3).skip(1).count(); // 3
+
+db.books.find().sort({title: 1}); // sorts in ascending order on title
+db.books.find().sort({ratings: -1}).pretty(); // sorts in descending order on ratings
