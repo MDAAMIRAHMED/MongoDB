@@ -1,0 +1,4 @@
+show dbs; // show all databases
+use bookstore; // create or return to this database
+db; // To check your currently selected database
+db.dropDatabase(); // to drop an existing database
