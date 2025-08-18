@@ -1,0 +1,15 @@
+show dbs;
+use bookstore;
+db; // bookstore
+
+
+db.createCollection("books");
+db.createCollection("authors");
+
+show dbs; // bookstore
+
+show collections; // books, authors
+
+db.authors.drop(); // drops the collections
+
+show collections; // authors
