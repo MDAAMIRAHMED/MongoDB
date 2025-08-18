@@ -1,0 +1,12 @@
+use bookstore
+db
+db.createCollection("books");
+show collections;
+
+db.books.insertOne({title: "The Color of Magic", author: "Terry Pachman", page: 300, ratings: 9, genres: ["fantasy", "magic"]});
+
+db.authors.insertOne({name: "J.K. Rowling", age: 60}) // without createCollection
+db.authors.insertMany([{name: "George R. R. Martin", age: 76}, {name: "Arundhati Roy", age: 63}])
+
+show collections; // books, authors
+db.authors.drop()
