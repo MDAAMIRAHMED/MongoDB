@@ -1,0 +1,12 @@
+use bookstore;
+
+db.createCollection("books");
+show collections;
+db.books.drop();
+
+db.books.insertMany([
+  {title: "One Piece", author: "Oda", reviews: [{name: "John", body: "The One Piece is awesome..."}, {name: "Wick", body: "The One Piece is real"}]}, 
+  {title: "DragonBall Z", author: "Toriyama", reviews: [{name: "Kenny", body: "Dragon Ball Z is great"}, {name: "Jenny", body: "Dragon Ball Z is nice..."}]}
+])
+
+db.books.find();
