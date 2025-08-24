@@ -22,3 +22,7 @@ db.books.find({ratings: {$gte: 8}}, {ratings: 1});
 db.books.find({ratings: {$lte: 6}}, {ratings: 1});
 
 db.books.find({ratings: {$lt: 7}, author: "Patrick Rothfuss"});
+
+db.books.find({$or: [{ratings: 9}, {ratings: 7}]});
+db.books.find({$or: [{ratings: 9}, {page: 662}]});
+db.books.find({$or: [{page: {$gt: 600}}, {page: {$lt: 400}}]});
