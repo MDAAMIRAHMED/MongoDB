@@ -1,0 +1,104 @@
+use bookstore;
+
+db.createCollection("books");
+show collections;
+db.books.drop();
+
+db.books.insertMany([
+  {
+    title: "The Color of Magic",
+    author: "Terry Pachman",
+    page: 300,
+    ratings: 9,
+    genres: ["fantasy", "magic"],
+    reviews: [
+      { user: "Alice", comment: "A fun introduction to Discworld!", rating: 8 },
+      { user: "Bob", comment: "Quirky and imaginative.", rating: 9 }
+    ]
+  },
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    page: 310,
+    ratings: 9,
+    genres: ["fantasy", "adventure", "classic"],
+    reviews: [
+      { user: "Charlie", comment: "A timeless classic.", rating: 10 },
+      { user: "Dana", comment: "Loved the journey and characters.", rating: 9 }
+    ]
+  },
+  {
+    title: "Mistborn: The Final Empire",
+    author: "Brandon Sanderson",
+    page: 541,
+    ratings: 9,
+    genres: ["fantasy", "heist", "magic"],
+    reviews: [
+      { user: "Eve", comment: "Brilliant magic system!", rating: 10 },
+      { user: "Frank", comment: "Kept me hooked till the end.", rating: 9 }
+    ]
+  },
+  {
+    title: "The Name of the Wind",
+    author: "Patrick Rothfuss",
+    page: 662,
+    ratings: 9,
+    genres: ["fantasy", "coming-of-age", "magic"],
+    reviews: [
+      { user: "Grace", comment: "Beautifully written.", rating: 9 },
+      { user: "Bob", comment: "Kvothe is such a unique character.", rating: 8 }
+    ]
+  },
+  {
+    title: "American Gods",
+    author: "Neil Gaiman",
+    page: 480,
+    ratings: 8,
+    genres: ["fantasy", "mythology", "urban-fantasy"],
+    reviews: [
+      { user: "Ivy", comment: "Dark and fascinating.", rating: 8 },
+      { user: "Jack", comment: "Slow start but worth it.", rating: 7 }
+    ]
+  },
+  {
+    title: "A Game of Thrones",
+    author: "George R. R. Martin",
+    page: 694,
+    ratings: 9,
+    genres: ["fantasy", "political", "epic"],
+    reviews: [
+      { user: "Karen", comment: "Intricate and brutal storytelling.", rating: 9 },
+      { user: "Leo", comment: "So many characters but gripping.", rating: 8 }
+    ]
+  },
+  {
+    title: "The Lies of Locke Lamora",
+    author: "Scott Lynch",
+    page: 722,
+    ratings: 8,
+    genres: ["fantasy", "heist", "crime"],
+    reviews: [
+      { user: "Mia", comment: "Loved the heist elements.", rating: 8 },
+      { user: "Nate", comment: "Clever writing and fun banter.", rating: 9 }
+    ]
+  },
+  {
+    title: "The Priory of the Orange Tree",
+    author: "Samantha Shannon",
+    page: 848,
+    ratings: 8,
+    genres: ["fantasy", "dragons", "epic"],
+    reviews: [
+      { user: "Olivia", comment: "Epic scope, strong characters.", rating: 9 },
+      { user: "Paul", comment: "Long but rewarding read.", rating: 8 }
+    ]
+  }
+]);
+
+db.books.find({ratings: 9}, {ratings: 1});
+db.books.deleteOne({ratings: 9});
+db.books.find({ratings: 9}, {ratings: 1});
+
+db.books.find({ratings: 8}, {ratings: 1});
+db.books.deleteMany({ratings: 8})
+db.books.find({ratings: 8}, {ratings: 1});
